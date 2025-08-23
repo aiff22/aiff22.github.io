@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> WESPE Project </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <script src="js/modernizr.js"></script>
+    <meta name="viewport" content="width=device-width">
+
+    <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-105303874-1', 'auto');
+	  ga('send', 'pageview');
+    </script>
+</head>
+
+<!--
+<button id="demo-button" class="online-demo" onclick="open_demo();"><img src="assets/img/demo_button2.png"></button> 
+
+<div id="demos" style="display:none">
+	<a href="#" style="position: fixed; right: 2.2vmax; top: 6.3vw; color: white; z-index:9999; text-decoration: none; font-size: 1.2vmax;" onclick="close_demo()"> &#10006; </a>
+	<iframe class="demo" src="http://quality-gpu.eastus.cloudapp.azure.com:8080" name="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" >
+	<!--<iframe class="demo" src="http://127.0.0.1:5000/" name="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" >
+	</iframe>
+</div>
+-->
+
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<!-- ==== MENU ==== -->
+
+<nav>
+	<ul class="left_bar">
+		<a href="index.html"> <li2> DPED </li2></a>
+		<a href="wespe.html"> <li2 style="background-color: rgba(233,79,112, 0.85);"> WESPE </li2></a>
+		<a href="pynet.html"> <li2> PyNET </li2></a>
+		<a href="pynet-bokeh.html"> <li2> Bokeh </li2></a>
+		<a href="microisp.html"> <li2> MicroISP </li2></a>
+		<a href="camsdd.html"> <li2> CamSDD </li2></a>
+		<a href="midd.html"> <li2> MIDD </li2></a>
+	</ul>
+	<ul class="middle_bar">
+		<a href="#title"> <li> PAPER </li></a>
+		<a href="#demo"> <li> DEMO </li></a>
+		<a href="#dataset"> <li> DATASETS </li></a>
+		<a href="#algo"> <li> ALGO </li></a>
+	</ul>
+	<ul class="right_bar">
+		<a target="_blank" href="http://www.vision.ee.ethz.ch/en/" > <li> <img src="assets/img/eth_logo.png"> </li></a>
+		<a href="#about"> <li> ABOUT </li></a>
+	</ul>
+</nav>
+
+<div id="title">
+<h1 class="title"> WESPE: Weakly Supervised Photo Enhancer for Digital Cameras </h1>
+
+<table class="authors-wespe">
+<tr>
+	<td>Andrey Ignatov</td>
+	<td><a target="_blank" class = "link-invisible" href="https://www.vision.ee.ethz.ch/en/members/detail/282/">Nikolay Kobyshev</a></td>
+	<td><a target="_blank" class = "link-invisible" href="https://cvlai.net/">Radu Timofte</a></td>
+	<td><a target="_blank" class = "link-invisible" href="http://www.vision.ee.ethz.ch/~vanhoeyk/pro/">Kenneth Vanhoey</a></td>
+	<td><a target="_blank" class = "link-invisible" href="https://www.vision.ee.ethz.ch/en/members/get_member.cgi?id=1">Luc Van Gool</a></td>
+</tr>
+<tr class="emails">
+	<td>ihnatova@ethz.ch</td>
+	<td>nk@vision.ee.ethz.ch</td>
+	<td>radu.timofte@uni-wuerzburg.de</td>
+	<td>vanhoey@vision.ee.ethz.ch</td>
+	<td>vangool@vision.ee.ethz.ch</td>
+</tr>
+</td>
+</table>
+
+</div>
+
+<div id="abstract">
+	<div>
+		<div class="title-arxiv">
+	       	<p><a target="_blank" href="https://arxiv.org/pdf/1709.01118.pdf"><img src="assets/img/arxiv_wespe.png" width="100%"></a></p>
+	    </div>
+		<div class="title-info">
+	    	<p> <span style="font-weight:bold">Abstract:</span> Low-end and compact mobile cameras demonstrate limited photo quality mainly due to space, hardware and budget constraints. In this work, we propose a deep learning solution that translates photos taken by cameras with limited capabilities into DSLR-quality photos automatically. We tackle this problem by introducing a weakly supervised photo enhancer (WESPE) - a novel image-to-image GAN-based architecture. The proposed model is trained by weakly supervised learning: unlike previous works, there is no need for strong supervision in the form of a large annotated dataset of aligned original/enhanced photo pairs. The sole requirement is two distinct datasets: one from the source camera, and one composed of arbitrary high-quality images - the visual content they exhibit may be unrelated. Hence, our solution is repeatable for any camera: collecting the data and training can be achieved in a couple of hours. Our experiments on the DPED, Kitti and Cityscapes datasets as well as on photos from several generations of smartphones demonstrate that WESPE produces comparable qualitative results with state-of-the-art strongly supervised methods.</p>
+	        <p>
+	        	<a target="_blank" href="https://arxiv.org/pdf/1709.01118.pdf"> arXiv: 1709.01118, 2017 </a>
+	        	<a target="_blank" href="pynet.html"><button class="follow-up"> view the follow-up paper >> </button></a>
+	        </p>
+		</div>
+	</div>
+</div>
+
+<!--<div id = "btn-demo">
+	<a target="_blank" href="http://phancer.com/"><button class="btn-results-demo"> Try Online Demo >> </button></a>
+</div>-->
+
+<div id="demo">
+
+	<h1 class="title">
+		Cityscapes Dataset
+	</h1>
+	
+	<figure class="cd-image-container">
+		<img src="wespe/cityscapes/before_1.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/cityscapes/after_1.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle cd-first"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/cityscapes/before_2.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/cityscapes/after_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle cd-first"></span>
+	</figure>
+	
+	<!-- Row -->
+
+	<figure class="cd-image-container">
+		<img src="wespe/cityscapes/before_3.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/cityscapes/after_3.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/cityscapes/before_4.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/cityscapes/after_4.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<!-- Row -->
+
+	<figure class="cd-image-container">
+		<img src="wespe/cityscapes/before_5.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/cityscapes/after_5.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/cityscapes/before_6.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/cityscapes/after_6.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<h1 class="title">
+		iPhone 6 Camera
+	</h1>
+	
+	<figure class="cd-image-container">
+		<img src="wespe/iphone_6/before_1.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/iphone_6/after_1.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/iphone_6/before_2.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/iphone_6/after_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<!-- Row -->
+
+	<figure class="cd-image-container">
+		<img src="wespe/iphone_6/before_3.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/iphone_6/after_3.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/iphone_6/before_4.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/iphone_6/after_4.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<!-- Row -->
+
+	<figure class="cd-image-container">
+		<img src="wespe/iphone_6/before_5.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/iphone_6/after_5.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/iphone_6/before_6.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/iphone_6/after_6.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<h1 class="title">
+		Huawei P9 Leica Camera
+	</h1>
+	
+	<figure class="cd-image-container">
+		<img src="wespe/huawei_p9/before_1.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/huawei_p9/after_1.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/huawei_p9/before_2.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/huawei_p9/after_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<!-- Row -->
+
+	<figure class="cd-image-container">
+		<img src="wespe/huawei_p9/before_3.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/huawei_p9/after_3.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/huawei_p9/before_4.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/huawei_p9/after_4.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+	
+	<!-- Row -->
+	
+		<figure class="cd-image-container">
+		<img src="wespe/huawei_p9/before_5.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/huawei_p9/after_5.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/huawei_p9/before_6.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/huawei_p9/after_6.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<h1 class="title">
+		HTC One M9 Camera
+	</h1>
+	
+	<figure class="cd-image-container">
+		<img src="wespe/htc_m9/before_1.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/htc_m9/after_1.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/htc_m9/before_2.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/htc_m9/after_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+	
+	<!-- Row -->
+
+	<figure class="cd-image-container">
+		<img src="wespe/htc_m9/before_3.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/htc_m9/after_3.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/htc_m9/before_4.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/htc_m9/after_4.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<!-- Row -->
+
+	<figure class="cd-image-container">
+		<img src="wespe/htc_m9/before_5.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/htc_m9/after_5.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/htc_m9/before_6.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/htc_m9/after_6.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<h1 class="title">
+		Meizu M3s Camera
+	</h1>
+	
+	<figure class="cd-image-container">
+		<img src="wespe/meizu_m3s/before_1.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/meizu_m3s/after_1.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/meizu_m3s/before_2.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/meizu_m3s/after_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<!-- Row -->
+	
+	<figure class="cd-image-container">
+		<img src="wespe/meizu_m3s/before_3.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/meizu_m3s/after_3.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/meizu_m3s/before_4.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/meizu_m3s/after_4.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<!-- Row -->
+
+	<figure class="cd-image-container">
+		<img src="wespe/meizu_m3s/before_5.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/meizu_m3s/after_5.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+	
+	<figure class="cd-image-container">
+		<img src="wespe/meizu_m3s/before_6.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/meizu_m3s/after_6.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+	
+	<h1 class="title">
+		Xiaomi Redmi 3X Camera
+	</h1>
+
+	<figure class="cd-image-container">
+		<img src="wespe/xiaomi_3x/before_1.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/xiaomi_3x/after_1.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+	
+	<figure class="cd-image-container">
+		<img src="wespe/xiaomi_3x/before_2.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/xiaomi_3x/after_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<!-- Row -->
+	
+		<figure class="cd-image-container">
+		<img src="wespe/xiaomi_3x/before_3.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/xiaomi_3x/after_3.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/xiaomi_3x/before_4.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/xiaomi_3x/after_4.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<!-- Row -->
+	
+	<figure class="cd-image-container">
+		<img src="wespe/xiaomi_3x/before_5.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/xiaomi_3x/after_5.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/xiaomi_3x/before_6.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/xiaomi_3x/after_6.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+	
+	<h1 class="title">
+		Nexus 5X Camera
+	</h1>
+
+	<figure class="cd-image-container">
+		<img src="wespe/nexus_5x/before_1.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/nexus_5x/after_1.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+	
+		<figure class="cd-image-container">
+		<img src="wespe/nexus_5x/before_2.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/nexus_5x/after_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<!-- Row -->
+
+	<figure class="cd-image-container">
+		<img src="wespe/nexus_5x/before_3.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/nexus_5x/after_3.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/nexus_5x/before_4.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/nexus_5x/after_4.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+		
+	<!-- Row -->
+	
+	<figure class="cd-image-container">
+		<img src="wespe/nexus_5x/before_5.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/nexus_5x/after_5.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="wespe/nexus_5x/before_6.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="wespe/nexus_5x/after_6.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+</div>
+
+<div id="dataset" style="margin-top: 7vw;">
+
+	<h1 class="title"> Datasets </h1>
+
+	<p class="dataset-wespe"> The first part of experiments is conducted on three publicly available datasets: <a target="_blank" class="grey-link" href="http://people.ee.ethz.ch/~ihnatova/#dataset">DPED</a>, <a target="_blank" class="grey-link" href="https://www.cityscapes-dataset.com/">Cityscapes</a> and <a target="_blank" class="grey-link" href="http://www.cvlibs.net/datasets/kitti/">Kitti</a>. The first dataset consists of photos from three smartphones (<a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/IPhone_3GS">iPhone 3GS</a>, <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/BlackBerry_Passport">BlackBerry Passport</a>, <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/Sony_Xperia_Z">Sony Xperia Z</a>), two other datasets were collected using low-end cameras installed in the cars and are intended for semantic labeling and autonomous driving tasks.
+	</p>
+	<br/>
+	<p class="dataset-wespe"> Additionally, the proposed approach was tested on photos from several common smartphones: <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/IPhone_6">iPhone 6</a>, <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/Huawei_P9">Huawei P9</a>, <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/HTC_One_M9">HTC One M9</a>, <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/Meizu_M3S">Meizu M3s</a>, <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/Xiaomi_Redmi#Redmi">Xiaomi Redmi 3X</a> and <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/Nexus_5X">Nexus 5X</a>. For each phone, between 600 and 1500 training images were collected within one day.
+	</p>
+</div>
+
+<div id="algo" style="margin-top: 6vw;">
+
+	<h1 class="title"> Algorithm </h1>
+	
+		<div class="architecture-info">
+			<p>
+			The proposed solution consists of five Convolutional Neural Networks. The first network is a <text class="highlight-color">12-layer Residual CNN</text> which goal is to enhance the input image to DSLR quality. However, since we don't have explicit target images, we are facing the following problem: the network <text class="highlight-color">doesn't know how the enhanced image should look like.</text> Moreover, without any constraints it can produce the enhanced image that is not related to the input photo at all. To solve these challenges, we propose three loss functions that take care about all these aspects:
+</p>
+			<br/>
+			<table>
+  				<tr>
+    				<td width="18%">&#9679; <text class="highlight-color-blue">Content loss:</text></td>
+    				<td> 
+    				We introduce the <text class="highlight-color">second CNN</text> with the same architecture that takes the enhanced image as an input and tries to reproduce the original photo. If the content of the original photo is not preserved in the enhanced image, the network will fail and the loss will be high. The loss itself is computed as a difference between the original image and its reconstruction using their content descriptions produced by <text class="highlight-color">VGG-19 CNN</text> pre-trained on Alexnet.
+    			</td>
+  				</tr>
+  				<tr>
+  				</tr>
+  				<tr>
+    				<td width="18%">&#9679; <text class="highlight-color-blue">Color loss:</text></td>
+    				<td> The enhanced image should have bright and vivid colors. To measure its color quality, we train an <text class="highlight-color">adversarial CNN-discriminator</text> that observes the improved and arbitrary high-quality images, and its objective is to predict which image is which. Before passing images to this CNN, we apply  <text class="highlight-color">Gaussian blur</text> to them to avoid texture and content comparison. The goal of the image enhancement network is to fool the discriminator, so that it cannot distinguish between the enhanced and DSLR photos.</td>
+  				</tr>
+  				<tr>
+  				</tr>
+  				<tr>
+    				<td width="18%">&#9679; <text class="highlight-color-blue">Texture loss:</text></td>
+    				<td> A separate <text class="highlight-color">CNN-discriminator</text> is trained to measure texture quality of the enhanced image. To avoid color comparison, we pass <text class="highlight-color">grayscale</text> enhanced and DSLR images to this CNN and its objective is to predict which image is which. The goal of the image enhancement network is the same as in the previous case.</td>
+  				</tr>
+			</table>
+			<br/>
+			<p style="width: 60vw"> Finally, these losses are summed, and the presented system is trained as a whole to minimize the final weighted loss.</p>
+			<p>Note that after the system is trained, <text class="highlight-color">only the first CNN is needed to enhance images</text>.
+		</p>
+
+		</div>
+		<div class="architecture-wespe">
+	       	<p><img src="assets/img/architecture2.jpg" width="100%"></p>
+	    </div>
+
+</div>
+
+<div id="cite">
+		<h1 class="title"> Citation </h1>
+		
+		<p><text class="italic">Andrey Ignatov, Nikolay Kobyshev, Radu Timofte, Kenneth Vanhoey </text> and <text class="italic">Luc Van Gool.</text></p>
+		<p>"WESPE: Weakly Supervised Photo Enhancer for Digital Cameras",</p>
+		<p>In <text class="italic">Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops</text>, 2018</p>
+		<!--<br/>
+		<br/>
+		<br/>
+		<p><text class="small-text">The work is supported by the ETH Zurich General Fund, Toyota via the project TRACE-Zurich, and an NVidia GPU grant.</text></p>-->
+
+</div>
+
+<div id="about">
+	<div id="content">
+		<!--<p>Contact: {ihnatova, nk, timofter, vanhoey}@vision.ee.ethz.ch</p>-->
+		<p>ETH Zurich</p>
+		<p>Switzerland, 2017-2025</p>
+	</div>
+</div>
+
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.mobile.custom.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+	function open_demo() {
+		document.getElementById('demos').style.display="block";
+		document.getElementById('demo-button').style.display="none";
+	}
+	function close_demo() {
+		document.getElementById('demos').style.display="none";
+		document.getElementById('demo-button').style.display="block";
+	}
+</script>
+</body>
+
+</html>

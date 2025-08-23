@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> DPED Project </title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <script src="js/modernizr.js"></script>
+    <meta name="viewport" content="width=device-width">
+
+    <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-105303874-1', 'auto');
+	  ga('send', 'pageview');
+    </script>
+</head>
+
+<!--
+<button id="demo-button" class="online-demo" onclick="open_demo();"><img src="assets/img/demo_button2.png"></button> 
+
+<div id="demos" style="display:none">
+	<a href="#" style="position: fixed; right: 2.2vmax; top: 6.3vw; color: white; z-index:9999; text-decoration: none; font-size: 1.2vmax;" onclick="close_demo()"> &#10006; </a>
+	<iframe class="demo" src="http://quality-gpu.eastus.cloudapp.azure.com:8080" name="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" >
+	<!--<iframe class="demo" src="http://127.0.0.1:5000/" name="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" >
+	</iframe>
+</div>
+-->
+
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+
+<!-- ==== MENU ==== -->
+
+<nav>
+	<ul class="left_bar">
+		<a href="index.html"> <li2 style="background-color: rgba(233,79,112, 0.85);"> DPED </li2></a>
+		<a href="wespe.html"> <li2> WESPE </li2></a>
+		<a href="pynet.html"> <li2> PyNET </li2></a>
+		<a href="pynet-bokeh.html"> <li2> Bokeh </li2></a>
+		<a href="microisp.html"> <li2> MicroISP </li2></a>
+		<a href="camsdd.html"> <li2> CamSDD </li2></a>
+		<a href="midd.html"> <li2> MIDD </li2></a>
+	</ul>
+	<ul class="middle_bar">
+		<a href="#title"> <li> PAPER </li></a>
+		<a href="#demo"> <li> DEMO </li></a>
+		<a href="#dataset"> <li> DATASET </li></a>
+		<a href="#algo"> <li> ALGO </li></a>
+		<a href="#code"> <li> CODE </li></a>
+	</ul>
+	<ul class="right_bar">
+		<a target="_blank" href="http://www.vision.ee.ethz.ch/en/" > <li> <img src="assets/img/eth_logo.png"> </li></a>
+		<a href="#about"> <li> ABOUT </li></a>
+	</ul>
+</nav>
+
+<div id="title">
+<h1 class="title"> DSLR-Quality Photos on Mobile Devices with Deep Convolutional Networks </h1>
+
+<table class="authors">
+<tr>
+	<td>Andrey Ignatov</td>
+	<td><a target="_blank" class = "link-invisible" href="https://www.vision.ee.ethz.ch/en/members/detail/282/">Nikolay Kobyshev</a></td>
+	<td><a target="_blank" class = "link-invisible" href="https://cvlai.net/">Radu Timofte</a></td>
+	<td><a target="_blank" class = "link-invisible" href="http://www.vision.ee.ethz.ch/~vanhoeyk/pro/">Kenneth Vanhoey</a></td>
+	<td><a target="_blank" class = "link-invisible" href="https://www.vision.ee.ethz.ch/en/members/get_member.cgi?id=1">Luc Van Gool</a></td>
+</tr>
+<tr class="emails">
+	<td>ihnatova@ethz.ch</td>
+	<td>nk@vision.ee.ethz.ch</td>
+	<td>radu.timofte@uni-wuerzburg.de</td>
+	<td>vanhoey@vision.ee.ethz.ch</td>
+	<td>vangool@vision.ee.ethz.ch</td>
+</tr>
+</td>
+</table>
+
+<h1 class="institute"> ICCV 2017 Paper </h1>
+</div>
+
+<div id="abstract">
+	<div>
+		<div class="title-arxiv">
+	       	<p><a target="_blank" href="https://arxiv.org/pdf/1704.02470.pdf"><img src="assets/img/dped.png" width="100%"></a></p>
+	    </div>
+		<div class="title-info">
+	    	<p> <span style="font-weight:bold">Abstract:</span> Despite a rapid rise in the quality of built-in smartphone cameras, their physical limitations - small sensor size, compact lenses and the lack of specific hardware, - impede them to achieve the quality results of DSLR cameras. In this work we present an end-to-end deep learning approach that bridges this gap by translating ordinary photos into DSLR-quality images. We propose learning the translation function using a residual convolutional neural network that improves both color rendition and image sharpness. Since the standard mean squared loss is not well suited for measuring perceptual image quality, we introduce a composite perceptual error function that combines content, color and texture losses. The first two losses are defined analytically, while the texture loss is learned in an adversarial fashion. We also present DPED, a large-scale dataset that consists of real photos captured from three different phones and one high-end reflex camera. Our quantitative and qualitative assessments reveal that the enhanced image quality is comparable to that of DSLR-taken photos, while the methodology is generalized to  any type of digital camera.</p>
+	        <p>
+	        	<a target="_blank" href="https://arxiv.org/pdf/1704.02470.pdf"> arXiv: 1704.02470, 2017 </a>
+	        	<a target="_blank" href="wespe.html"><button class="follow-up"> view the follow-up paper >> </button></a>
+	        	<!--<a target="_blank" href="http://phancer.com/"><button class="follow-up" style="padding-left: 2.9vw; padding-right: 2.9vw; background-color: #f16b59;"> online demo </button></a>-->
+	        </p>
+		</div>
+	</div>
+</div>
+
+<div id="demo">
+
+	<h1 class="title">
+		iPhone 3GS Camera Demo 
+		<a target="_blank" href="dped_iphone.html"><button class="btn-results-dped"> more results </button></a>
+	</h1>
+	
+
+	<figure class="cd-image-container">
+		<img src="demo/iphone/0_0.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="demo/iphone/0_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle cd-first"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="demo/iphone/7_0.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="demo/iphone/7_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle cd-first"></span>
+	</figure>
+
+	<h1 class="title">
+		BlackBerry Passport Camera
+		<a target="_blank" href="dped_blackberry.html"><button class="btn-results-dped"> more results </button></a>
+	</h1>
+	
+	<figure class="cd-image-container">
+		<img src="demo/blackberry/21_0.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="demo/blackberry/21_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="demo/blackberry/24_0.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="demo/blackberry/24_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<h1 class="title">
+		Sony Xperia Z Camera
+		<a target="_blank" href="dped_sony.html"><button class="btn-results-dped"> more results </button></a>
+	</h1>
+	
+	<figure class="cd-image-container">
+		<img src="demo/sony/2_0.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="demo/sony/2_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<figure class="cd-image-container">
+		<img src="demo/sony/6_0.jpg" alt="Original Image">
+		<span class="cd-image-label" data-type="original">Original</span>
+		
+		<div class="cd-resize-img">
+			<img src="demo/sony/6_2.jpg" alt="Modified Image">
+			<span class="cd-image-label" data-type="modified">Modified</span>
+		</div>
+		
+		<span class="cd-handle"></span>
+	</figure>
+
+	<!--<a target="_blank" href="external_iphone.html"><button class="btn-results-reviews"> View enhanced photos from external phone reviews </button></a>-->
+	<a target="_blank" href="external_iphone.html"><button class="btn-results-reviews">View photos from various external phone reviews improved by our method</button></a>
+
+</div>
+
+<div id="dataset">
+
+	<h1 class="title"> DPED: DSLR Photo Enhancement Dataset </h1>
+
+	<div>
+		<div class="dped-image padding-top-05vw">
+	       	<p><img src="assets/img/k800.jpg" width="100%"></p>
+	    </div>
+		<div class="dped-info">
+	    	<p> To tackle the general photo enhancement problem by mapping low-quality phone photos into photos captured by a professional DSLR camera, we introduce a large-scale DPED dataset that consists of photos taken synchronously in the wild by three smartphones and one DSLR camera. The devices used to collect the data are <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/IPhone_3GS">iPhone 3GS</a>, <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/BlackBerry_Passport">BlackBerry Passport</a>, <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/Sony_Xperia_Z">Sony Xperia Z</a> and <a target="_blank" class="grey-link" href="https://en.wikipedia.org/wiki/Canon_EOS_70D">Canon 70D DSLR</a>. To ensure that all devices were capturing photos simultaneously, they were mounted on a tripod and activated remotely by a wireless control system.
+	    	</p>
+	    	<br/>
+			<p>
+	    	In total, over 22K photos were collected during 3 weeks, including 4549 photos from Sony smartphone, 5727 from iPhone and 6015 photos from BlackBerry; for each smartphone photo there is a corresponding photo from the Canon DSLR. The photos were taken during the daytime in a wide variety of places and in various illumination and weather conditions. The images were captured in automatic mode, we used default settings for all cameras throughout the whole collection procedure.
+			</p>
+		</div>
+	</div>
+
+</div>
+
+<div id="dataset-2">
+	<div>
+		<div class="dped-info margin-top-1vw">
+			<p>
+			The synchronously captured photos are not perfectly aligned since the cameras have different viewing angles, focal lengths and positions. To address this, we performed additional non-linear transformations based on SIFT features to extract the intersection part between phone and DSLR photos, and then used the obtained aligned image fragments to extract patches of size 100x100 pixels for CNN training (139K, 160K and 162K pairs for BlackBerry, iPhone and Sony, respectively). These patches constituted the input data to our CNN.
+</p>
+			<!--a target="_blank" href="https://drive.google.com/file/d/0BwOLOmqkYj-jaVJnMDhpWGh5WnM/view?usp=sharing&resourcekey=0-Chhz_xwawF_9yABVicr_tw"><button class="btn-download">Download sample photos (125 Mb)</button></a-->
+			<!--a target="_blank" href="https://goo.gl/forms/It9x3g3Yr8m7751s1"><button class="btn-download">Download original photos (54 GB)</button></a-->
+			<!--a target="_blank" href="https://goo.gl/forms/f7fCuEyhLXttSrA72"><button class="btn-download">Download patches for CNN training (6.2 GB)</button></a-->
+			<a target="_blank" href="https://download.ai-benchmark.com/s/9RqJ5JZPDggMoyo/download/sample_images.gz"><button class="btn-download">Download sample photos (125 Mb)</button></a>
+			<a target="_blank" href="https://download.ai-benchmark.com/s/dWZz5RD9kHpedix/download/dped.gz"><button class="btn-download">Download patches for CNN training (6.2 GB)</button></a>
+			<a target="_blank" href="https://download.ai-benchmark.com/s/rC6PwBK8exRomy8/download/original_images.gz"><button class="btn-download">Download original photos (54 GB)</button></a>
+		</div>
+			<div class="dped-image margin-top-minus1vw">
+	       	<p><img src="assets/img/dped_quadro.png" width="100%"></p>
+	    </div>
+	</div>
+</div>
+
+<div id="algo">
+
+	<h1 class="title"> Algorithm </h1>
+	
+		<div class="architecture-info">
+			<p>
+			Image enhancement is performed using a <text class="highlight-color">12-layer Residual Convolutional Neural Network</text> that takes phone photo as an input and is trained to reproduce the corresponding image from DSLR camera. In other words, its goal is to learn the underlying translation function that modifies photos taken by a given camera into DSLR-quality photos. The network is trained to minimize a composite loss function that consists of the following three terms:
+</p>
+			<br/>
+			<table>
+  				<tr>
+    				<td width="18%">&#9679; <text class="highlight-color-blue">Color loss:</text></td>
+    				<td> the enhanced image should be close to the target (DSLR) photo in terms of colors. To measure the difference between them, we apply  <text class="highlight-color">Gaussian blur</text> to both images and compute the Euclidean distance between the obtained representations.</td>
+  				</tr>
+  				<tr>
+  				</tr>
+  				<tr>
+    				<td width="18%">&#9679; <text class="highlight-color-blue">Texture loss:</text></td>
+    				<td> to measure texture quality of the enhanced image, we train a separate <text class="highlight-color">adversarial CNN-discriminator</text> that observes both  improved and target grayscale images, and its objective is to predict which image is which. The goal of our image enhancement network is to fool the discriminator, so that it cannot distinguish between them.</td>
+  				</tr>
+  				<tr>
+  				</tr>
+  				<tr>
+    				<td width="18%">&#9679; <text class="highlight-color-blue">Content loss:</text></td>
+    				<td> a distinct <text class="highlight-color">VGG-19 CNN</text> pre-trained on Alexnet is used to preserve image semantics: content description produced by this CNN should be the same both for the improved and target images.</td>
+  				</tr>
+			</table>
+			<br/>
+			<p> All these losses are then summed, and the system is trained as a whole with the backpropagation algorithm to minimize the final weighted loss.
+			</p>
+		</div>
+		<div class="architecture-image">
+	       	<p><img src="assets/img/architecture.jpg" width="100%"></p>
+	    </div>
+
+</div>
+
+<div id="code">
+	<h1 class="title"> Code </h1>
+	<p>TensorFlow implementation of the proposed models and the whole training pipeline is available in our <a target="_blank" class="grey-link" href="https://github.com/aiff22/DPED">github repo</a></p>
+	<br/>
+	<p>Pre-trained <span class="large-spacing">models + standalone</span> code to run them can be downloaded separately <a target="_blank" class="grey-link" href="https://download.ai-benchmark.com/s/a6rH7cT8iT5kFyn/download/models+code.gz">here</a></p>
+	<br/>
+	<p><span class = "small-text"><span class="large-spacing">Prerequisites: GPU</span> + CUDA CuDNN + TensorFlow (>= 1.0.1)</span></p>
+	<p></p>
+</div>
+
+<div id="cite">
+		<h1 class="title"> Citation </h1>
+		
+		<p><text class="italic">Andrey Ignatov, Nikolay Kobyshev, Radu Timofte, Kenneth Vanhoey </text> and <text class="italic">Luc Van Gool.</text></p>
+		<p>"DSLR-Quality Photos on Mobile Devices with Deep Convolutional Networks",</p>
+		<p>In <text class="italic">IEEE International Conference on Computer Vision (ICCV)</text>, 2017</p>
+		<!--<br/>
+		<br/>
+		<br/>
+		<p><text class="small-text">The work is supported by the ETH Zurich General Fund, Toyota via the project TRACE-Zurich, and an NVidia GPU grant.</text></p>-->
+
+</div>
+
+<div id="about">
+	<div id="content">
+		<!--<p>Contact: {ihnatova, nk, timofter, vanhoey}@vision.ee.ethz.ch</p>-->
+		<p>ETH Zurich</p>
+		<p>Switzerland, 2017-2025</p>
+	</div>
+</div>
+
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.mobile.custom.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+	function open_demo() {
+		document.getElementById('demos').style.display="block";
+		document.getElementById('demo-button').style.display="none";
+	}
+	function close_demo() {
+		document.getElementById('demos').style.display="none";
+		document.getElementById('demo-button').style.display="block";
+	}
+</script>
+</body>
+
+</html>
